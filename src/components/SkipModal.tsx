@@ -15,7 +15,7 @@ const SkipModal: React.FC<SkipModalProps> = ({ skip, onClose, onContinue }) => {
 
   return (
     <div className="fixed inset-0 flex flex-col justify-end z-50 bg-black/50">
-      <div className="bg-neutral-900 text-white w-full px-4 py-2 shadow-2xl">
+      <div className="bg-gray-100 text-white w-full px-4 py-2 shadow-2xl">
         <div className="flex flex-col justify-between items-center mb-2">
           <p className="text-xs text-neutral-500 mt-2">
             Imagery and information shown throughout this website may not
@@ -35,13 +35,13 @@ const SkipModal: React.FC<SkipModalProps> = ({ skip, onClose, onContinue }) => {
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="bg-neutral-700 text-white px-4 py-2 rounded shadow hover:bg-neutral-600"
+              className="bg-neutral-500 text-white px-4 py-2 rounded shadow hover:bg-neutral-600"
             >
               Back
             </button>
             <button
               onClick={onContinue}
-              className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 flex items-center gap-1"
+              className="bg-[#0037C1] text-white px-4 py-2 rounded shadow flex items-center gap-1"
             >
               Continue
               <svg

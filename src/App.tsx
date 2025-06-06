@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex flex-col min-h-screen bg-[#121212] text-white">
+      <div className="flex flex-col min-h-screen bg-gray-50">
         <Stepper steps={steps} currentStep="Select Skip" />
         <main className="flex-grow">
           <SkipList />

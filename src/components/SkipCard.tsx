@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight, Clock, AlertTriangle } from "lucide-react";
 import { Button } from "./ui/button";
 import type { Skip } from "../types/skip";
@@ -28,69 +30,83 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") handleSelect();
       }}
-      className={`flex flex-col md:flex-row bg-[#1C1C1C] backdrop-opacity-10 rounded-2xl shadow-md border hover:shadow-xl transition cursor-pointer ${
-        selected ? "ring-2 ring-blue-500" : "border-gray-200"
+      className={`flex flex-row bg-white rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer overflow-hidden ${
+        selected ? "ring-2 ring-[#1C1C1C]" : "border-gray-200"
       }`}
     >
       {/* Skip Image */}
-      <div className="relative flex-shrink-0 md:w-48 h-48 md:h-auto md:rounded-l-2xl overflow-hidden bg-gradient-to-r from-[#d6d7da] to-[#eff1f4]">
+      <div className="relative w-44 h-36 flex-shrink-0 overflow-hidden">
         <img
-          src={binIcon}
+          src={binIcon || "/placeholder.svg"}
           alt={`${skip.size} yard skip`}
           className="object-cover w-full h-full"
         />
-        {skip.allowed_on_road === false && (
-          <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-amber-100/80 text-amber-800 text-xs font-semibold px-2 py-1 rounded-full">
-            <AlertTriangle className="w-3 h-3" />
-            No Road Placement
-          </div>
-        )}
-        <div className="absolute top-2 left-2 bg-[#002366] text-white text-xs font-bold rounded-md px-2 py-1">
+
+        <div className="absolute top-2 left-2 bg-[#1C1C1C] text-white text-xs font-bold rounded-full px-2 py-1">
           {skip.size} yds
         </div>
       </div>
 
       {/* Card Content */}
-      <div className="flex flex-col justify-between p-2 flex-grow">
+      <div className="flex flex-col justify-between p-3 flex-grow">
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-base font-semibold text-white">
-              {skip.size} Yards Skip
-            </h3>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-[#00369C]">
+          <div className="flex items-start justify-between">
+            <div>
+              <h3 className="text-base font-semibold text-gray-900">
+                {skip.size} Yard Skip
+              </h3>
+              <div className="flex items-center mt-1">
+                <span className="mx-1 text-gray-300">•</span>
+                <span className="text-xs text-gray-500">
+                  {skip.allowed_on_road ? "Road Placement" : "Driveway Only"}
+                </span>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-xs text-gray-500">
+                {skip.price_before_vat < 200 ? "28% less than usual" : ""}
+              </div>
+              <div className="text-lg font-bold text-gray-900">
                 £{totalPrice}
-              </span>
+              </div>
             </div>
           </div>
-          <div className="flex md:flex-row flex-col items-center justify-between mb-2">
-            <div className="flex items-center gap-2 text-sm text-gray-400 mb-1">
-              <Clock className="w-4 h-4 text-gray-400" />
+
+          <div className="flex flex-wrap gap-2 mt-2">
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <Clock className="w-3 h-3" />
               {skip.hire_period_days} days hire
             </div>
 
             {!skip.allowed_on_road && (
-              <div className="flex items-center gap-1 text-amber-500 text-xs">
-                <AlertTriangle className="w-3 h-3" />
-                Driveway only
+              <div className="flex items-center gap-1 text-xs text-gray-600">
+                <AlertTriangle className="w-3 h-3 text-amber-500" />
+                No Road Placement
+              </div>
+            )}
+
+            {skip.allows_heavy_waste && (
+              <div className="flex items-center gap-1 text-xs text-gray-600">
+                <span className="w-3 h-3 bg-gray-200 rounded-full flex items-center justify-center">
+                  ✓
+                </span>
+                Heavy Waste
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex justify-center items-center mt-2 ">
+        <div className="flex justify-end items-center mt-3">
           <Button
             onClick={(e) => {
               e.stopPropagation();
               handleSelect();
             }}
             disabled={!isAvailable}
-            className={`py-2 px-4 rounded-lg text-sm font-semibold ${
+            className={`py-1 px-4 rounded-md text-sm font-medium ${
               isAvailable
-                ? selected
-                  ? "bg-[#0037C1] text-white cursor-pointer "
-                  : "bg-[#2A2A2A] text-white cursor-pointer transition "
-                : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
             {isAvailable ? (

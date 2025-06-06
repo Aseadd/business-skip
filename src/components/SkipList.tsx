@@ -1,4 +1,7 @@
-import React, { useState, useCallback } from "react";
+"use client";
+
+import type React from "react";
+import { useState, useCallback } from "react";
 import type { Skip } from "../types/skip";
 import { useSkips } from "../hooks/useSkip";
 import SkipCard from "./SkipCard";
@@ -42,15 +45,15 @@ const SkipList: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center min-h-screen p-4 md:px-20">
-      <h2 className="text-base font-bold text-center text-white mb-2">
+    <div className="flex flex-col justify-center min-h-screen p-4 md:px-10 bg-gray-50">
+      <h2 className="text-xl font-bold text-center text-gray-800 mb-2">
         Select Your Skip Size
       </h2>
-      <p className="text-sm text-center mb-6 text-gray-400">
+      <p className="text-sm text-center mb-6 text-gray-500">
         Select the skip size that best suits your needs
       </p>
 
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-2  mx-auto">
         {skips.map((skip) => (
           <SkipCard
             key={skip.id}
