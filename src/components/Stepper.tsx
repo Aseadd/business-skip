@@ -15,7 +15,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
 
   return (
     <nav
-      className="bg-[#002366] flex md:flex-row flex-col justify-center gap-4 px-4 py-2 overflow-x-auto
+      className=" flex md:flex-row flex-col justify-center gap-4 px-4 py-2 overflow-x-auto
       scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-900"
       aria-label="Progress steps"
     >
@@ -23,8 +23,8 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
         {steps.map((step, idx) => (
           <React.Fragment key={step.name}>
             <div
-              className={`flex items-center gap-1 text-sm ${
-                idx <= currentIndex ? "text-white" : "text-neutral-500"
+              className={`flex items-center gap-1 text-xs ${
+                idx <= currentIndex ? "text-indigo-600" : "text-neutral-500"
               }`}
             >
               {step.icon}
@@ -33,7 +33,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
             {idx < steps.length - 1 && (
               <span
                 className={`mx-1 ${
-                  idx < currentIndex ? "text-blue-500" : "text-[#808080]"
+                  idx < currentIndex ? "text-[#002366]" : "text-[#808080]"
                 }`}
               >
                 —

@@ -58,6 +58,9 @@ This project showcases a redesign of the **Skip Card component** inspired by mod
 git clone https://github.com/Aseadd/business-skip.git
 cd business-skip
 
+# Setup env file
+VITE_API_URL=https://app.wewantwaste.co.uk/api/
+
 # Install dependencies
 npm install
 
