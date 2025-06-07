@@ -58,7 +58,7 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
               <div className="flex items-center mt-1">
                 <span className="mx-1 text-gray-300">•</span>
                 <span className="text-xs text-gray-500">
-                  {skip.allowed_on_road ? "Road Placement" : "Driveway Only"}
+                  {skip.allowed_on_road ? "Not allowed on the road" : ""}
                 </span>
               </div>
             </div>
