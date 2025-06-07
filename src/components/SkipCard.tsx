@@ -114,7 +114,7 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
                 "Selected"
               ) : (
                 <span className="flex items-center">
-                  Book Now <ArrowRight className="ml-1 w-4 h-4" />
+                  Select Skip <ArrowRight className="ml-1 w-4 h-4" />
                 </span>
               )
             ) : (
