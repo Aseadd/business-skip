@@ -24,7 +24,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
           <React.Fragment key={step.name}>
             <div
               className={`flex items-center gap-1 text-xs ${
-                idx <= currentIndex ? "text-indigo-600" : "text-neutral-500"
+                idx <= currentIndex ? "text-[#4E41E5]" : "text-neutral-500"
               }`}
             >
               {step.icon}

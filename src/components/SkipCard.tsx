@@ -31,7 +31,9 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
         if (e.key === "Enter" || e.key === " ") handleSelect();
       }}
       className={`flex flex-row bg-white rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer overflow-hidden ${
-        selected ? "ring-2 ring-[#1C1C1C]" : "border-gray-200"
+        selected
+          ? "ring-2 ring-[#1C1C1C]"
+          : "border-gray-200 hover:border-[#4E41E5] hover:border-2"
       }`}
     >
       {/* Skip Image */}
@@ -55,12 +57,6 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
               <h3 className="text-base font-semibold text-gray-900">
                 {skip.size} Yard Skip
               </h3>
-              <div className="flex items-center mt-1">
-                <span className="mx-1 text-gray-300">•</span>
-                <span className="text-xs text-gray-500">
-                  {skip.allowed_on_road ? "Not allowed on the road" : ""}
-                </span>
-              </div>
             </div>
             <div className="text-right">
               <div className="text-xs text-gray-500">
@@ -79,9 +75,9 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
             </div>
 
             {!skip.allowed_on_road && (
-              <div className="flex items-center gap-1 text-xs text-gray-600">
+              <div className="flex items-center gap-1 text-xs text-amber-500 bg-amber-50 rounded-bl-2xl rounded-tr-2xl">
                 <AlertTriangle className="w-3 h-3 text-amber-500" />
-                No Road Placement
+                Not Allowed on the Road
               </div>
             )}
 
@@ -105,7 +101,7 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
             disabled={!isAvailable}
             className={`py-1 px-4 rounded-md text-sm font-medium ${
               isAvailable
-                ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                ? "bg-[#4E41E5] text-white hover:bg-indigo-700"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
