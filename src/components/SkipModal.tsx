@@ -27,7 +27,7 @@ const SkipModal: React.FC<SkipModalProps> = ({ skip, onClose, onContinue }) => {
         <div className="flex items-center justify-between gap-3 mt-4 lg:px-52 px-2">
           <div className="flex items-center gap-2">
             <p className="text-sm text-neutral-400">{skip.size} Yard Skip</p>
-            <p className="text-2xl font-bold text-blue-500">£{totalPrice}</p>
+            <p className="text-2xl font-bold text-[#4E41E5]">£{totalPrice}</p>
             <p className="text-sm text-neutral-400">
               {skip.hire_period_days} day hire
             </p>
@@ -41,7 +41,7 @@ const SkipModal: React.FC<SkipModalProps> = ({ skip, onClose, onContinue }) => {
             </button>
             <button
               onClick={onContinue}
-              className="bg-[#0037C1] text-white px-4 py-2 rounded shadow flex items-center gap-1"
+              className="bg-[#4E41E5] text-white px-4 py-2 rounded shadow flex items-center gap-1"
             >
               Continue
               <svg
