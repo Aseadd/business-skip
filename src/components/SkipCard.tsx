@@ -31,7 +31,9 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
         if (e.key === "Enter" || e.key === " ") handleSelect();
       }}
       className={`flex flex-row bg-white rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer overflow-hidden ${
-        selected ? "ring-2 ring-[#1C1C1C]" : "border-gray-200"
+        selected
+          ? "ring-2 ring-[#1C1C1C]"
+          : "border-gray-200 hover:border-indigo-600 hover:border-2"
       }`}
     >
       {/* Skip Image */}
@@ -79,9 +81,9 @@ const SkipCard = ({ skip, onSelect, selected = false }: SkipCardProps) => {
             </div>
 
             {!skip.allowed_on_road && (
-              <div className="flex items-center gap-1 text-xs text-gray-600">
+              <div className="flex items-center gap-1 text-xs text-amber-500 bg-amber-50 rounded-bl-2xl rounded-tr-2xl">
                 <AlertTriangle className="w-3 h-3 text-amber-500" />
-                No Road Placement
+                Not Allowed on the Road
               </div>
             )}
 
